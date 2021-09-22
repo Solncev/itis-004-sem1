@@ -13,6 +13,7 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter writer = resp.getWriter();
-        writer.println("Hello!");
+        String name = req.getParameter("name");
+        writer.println(name == null ? "Hello!" : String.format("Hello, %s!", name));
     }
 }
