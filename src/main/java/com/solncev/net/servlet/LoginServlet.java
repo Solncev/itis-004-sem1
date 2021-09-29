@@ -1,13 +1,17 @@
 package com.solncev.net.servlet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.Arrays;
 
 @WebServlet(name = "loginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
     public static final String LOGIN = "login";
     public static final String PASSWORD = "password123";
@@ -22,6 +26,7 @@ public class LoginServlet extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         if (LOGIN.equals(login) && PASSWORD.equals(password)) {
+            logger.info("User with username = {} logged in.", login);
             HttpSession session = req.getSession();
             session.setAttribute("username", login);
             session.setMaxInactiveInterval(60 * 60);

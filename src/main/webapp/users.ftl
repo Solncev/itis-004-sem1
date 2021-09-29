@@ -4,8 +4,10 @@
 
 <#macro content>
     Hello,
-    <#list users as u>
-        ${u}
-    </#list>!
+    <#if users??>
+        <#list users as u>
+            ${u.firstName} ${u.secondName}
+        </#list>!
+    </#if>
 </#macro>
 </html>
