@@ -5,9 +5,11 @@
 <#macro content>
     Hello,
     <#if users??>
-        <#list users as u>
-            ${u.firstName} ${u.secondName}
-        </#list>!
+        <#if users?has_content>
+            <#list users as u>
+                ${u.firstName} ${u.secondName} ${u.login}
+            </#list>!
+        </#if>
     </#if>
 </#macro>
 </html>
