@@ -50,5 +50,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.2.24</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.cloudinary</groupId>
+            <artifactId>cloudinary-core</artifactId>
+            <version>1.29.0</version>
+        </dependency>
     </dependencies>
 </project>
